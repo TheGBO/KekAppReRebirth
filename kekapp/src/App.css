@@ -54,3 +54,32 @@
   left: 10px;
   top: 2px;
 }
+.formulario{
+  height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center; 
+margin: 0;
+padding: 0;
+}
+.borda{
+  border: 2px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #505050;
+}
+.spann{
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.spann:hover{
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+.spann:not(:hover){
+  transform: scale(1);
+  transition: transform 0.3s;
+}

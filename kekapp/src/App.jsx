@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import './App.css'
-import './Registro.css';
 import kekapp from './assets/kekapp.png'
 import { useState } from 'react';
 function Registro() {

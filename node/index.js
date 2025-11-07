@@ -1,13 +1,28 @@
 const express = require('express');
 const cors = require('cors');
 const { PrismaClient } = require('@prisma/client');
+const { v4: uuidv4 } = require('uuid');
+const session = require('express-session')
 const app = express();
 const prisma = new PrismaClient();
 app.use(cors());
 app.use(express.json());
 
+
+app.use(session({
+  genid: (req) => {
+    console.log(req.sessionID)
+    const novoId = uuidv4(); // o uuid vai servir pras sessoes
+    console.log("Id novo: ", novoId);
+    return novoId;
+  },
+  secret: 'segredo uiui',
+  resave: false,
+  saveUninitialized: true
+}))
+
 app.get('/', (req, res) => {
-  res.json({ message: 'Backend funcionando! nao se esqueça de ligar o mysql!' });
+  res.json({ message: 'Backend funcionando! nao se esqueça de ligar o mysql!'});
 });
 
 app.post('/login', async (req, res) => {
